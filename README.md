@@ -7,3 +7,9 @@ neshdrc
 ====
 
 解压缩包需要用到 7zip, 所以请把程序放到 fceux 的目录下执行~
+
+
+
+测试下载
+========
+http://files.cnblogs.com/memset/neshdrc.7z
