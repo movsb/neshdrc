@@ -277,7 +277,7 @@ bool GetArchiveHeaders(CLibRef7Zip& _7z, std::vector<CNesFile>* files, const voi
 {
 	int matchingFormat = -1;
 	for(int i=0; i<(int)_7z.formatRecords.size(); i++){
-		int szsig = (int)_7z.formatRecords[i].signature.size();
+		size_t szsig = (int)_7z.formatRecords[i].signature.size();
 		if(!szsig) continue;
 		if( data_size >= szsig
 			&& memcmp(&_7z.formatRecords[i].signature[0], data, szsig) == 0)
@@ -288,7 +288,7 @@ bool GetArchiveHeaders(CLibRef7Zip& _7z, std::vector<CNesFile>* files, const voi
 	}
 
 	if(matchingFormat == -1){
-		delete[] data;
+		//delete[] data;
 		return false;
 	}
 
@@ -368,7 +368,7 @@ bool GetArchiveHeaders(CLibRef7Zip& _7z, std::vector<CNesFile>* files, const voi
 			VariantClear(reinterpret_cast<VARIANTARG*>(&prop));
 		}
 	}
-	catch(const char* str)
+	catch(const char*)
 	{
 		if(farch) farch->Release();
 		return false;
